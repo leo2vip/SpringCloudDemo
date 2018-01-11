@@ -17,8 +17,8 @@ public class HelloController {
 
     private final Logger logger = Logger.getLogger(getClass());
 
-//    @Autowired
-//    private DiscoveryClient client;
+    @Autowired
+    private DiscoveryClient client;
 
 //    @Value("${book.name}")
 //    private String name;
@@ -26,8 +26,8 @@ public class HelloController {
     @RequestMapping("/hello")
     public String hello(){
 //        System.out.println("book:"+name);
-//        ServiceInstance instance = client.getLocalServiceInstance();
-//        logger.info("/hello ,host:"+instance.getHost()+",service_id:"+instance.getServiceId());
+        ServiceInstance instance = client.getLocalServiceInstance();
+        logger.info("/hello ,host:"+instance.getHost()+",service_id:"+instance.getServiceId());
         return "Hello world!";
     }
 }
